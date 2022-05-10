@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:food_app/card1.dart';
-import 'package:food_app/card2.dart';
-import 'package:food_app/card3.dart';
+import 'package:food_app/components/components.dart';
+import 'package:food_app/screens/explore_screen.dart';
+
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -16,9 +16,9 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
 
   static List pages = [
-    Card1(),
-    Card2(),
-    Card3(),
+    ExploreScreen(),
+    Container(color: Colors.green),
+    Container(color: Colors.pink),
   ];
 
   void _onItemTapped(int index) {

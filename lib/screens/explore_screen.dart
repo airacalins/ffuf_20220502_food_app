@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:food_app/api/mock_food_app_service.dart';
+import 'package:food_app/components/components.dart';
 import 'package:food_app/models/models.dart';
 
 class ExploreScreen extends StatelessWidget {
@@ -10,13 +11,18 @@ class ExploreScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return FutureBuilder(
       future: mockService.getExploreData(),
-      builder: (context, AsyncSnapshot<ExploreData> snapshot) {
+      builder: (BuildContext context, AsyncSnapshot<ExploreData> snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           final recipes = snapshot.data?.todayRecipes ?? [];
-          return Center(
-            child: Container(
-              child: const Text('Today Recipe List View'),
-            ),
+          final friendPosts = snapshot.data?.friendPosts ?? [];
+          return ListView(
+            children: [
+              TodayRecipeListView(recipes: recipes),
+              SizedBox(
+                height: 16,
+              ),
+              FriendPostListView(friendPosts: friendPosts),
+            ],
           );
         } else {
           return const Center(child: CircularProgressIndicator());

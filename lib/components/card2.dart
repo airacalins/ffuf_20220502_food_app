@@ -1,9 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:food_app/models/models.dart';
 
 class Card2 extends StatefulWidget {
-  const Card2({Key? key}) : super(key: key);
+  final ExploreRecipe recipe;
+
+  const Card2({
+    Key? key, 
+    required this.recipe,
+  }) : super(key: key);
 
   @override
   State<Card2> createState() => _Card2State();

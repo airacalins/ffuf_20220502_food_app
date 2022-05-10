@@ -63,6 +63,7 @@ class ExploreRecipe {
         instructions.add(Instruction.fromJson(v));
       });
     }
+    
     return ExploreRecipe(
       id: json['id'] ?? '',
       cardType: json['cardType'] ?? '',

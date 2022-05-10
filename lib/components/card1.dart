@@ -1,9 +1,16 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:food_app/models/models.dart';
 
 class Card1 extends StatelessWidget {
-  const Card1({Key? key}) : super(key: key);
+
+  final ExploreRecipe recipe;
+
+  const Card1({
+    Key? key,
+    required this.recipe,
+  }) : super(key: key);
 
   final String category = 'Baker\' choice!';
   final String title = 'The Art of Dough!';
