@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:food_app/api/mock_food_app_service.dart';
 import 'package:food_app/components/components.dart';

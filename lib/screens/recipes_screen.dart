@@ -12,16 +12,17 @@ class RecipeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
-        future: exploreService.getRecipes(),
-        builder: (BuildContext context, AsyncSnapshot<List<SimpleRecipe>> snapshot) {
-          if (snapshot.connectionState == ConnectionState.done) {
-            //
-            return RecipesGridView(recipes: snapshot.data ?? []);
-          } else {
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        });
+      future: exploreService.getRecipes(),
+      builder: (BuildContext context, AsyncSnapshot<List<SimpleRecipe>> snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          //
+          return RecipesGridView(recipes: snapshot.data ?? []);
+        } else {
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
+        }
+      }
+    );
   }
 }

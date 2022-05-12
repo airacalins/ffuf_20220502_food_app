@@ -89,7 +89,7 @@ class Card1 extends StatelessWidget {
         decoration: BoxDecoration(
             color: Colors.black.withOpacity(0.7),
             image: DecorationImage(
-              image: AssetImage('images/image1.jpg'),
+              image: AssetImage('assets/images/app/image1.jpg'),
               fit: BoxFit.cover,
             ),
             borderRadius: BorderRadius.all(Radius.circular(20.0))),

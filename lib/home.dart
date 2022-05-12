@@ -1,9 +1,10 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:food_app/components/components.dart';
-import 'package:food_app/screens/explore_screen.dart';
-
+import 'package:food_app/models/bottom_tab_manager.dart';
+import 'package:food_app/screens/explore/explore_screen.dart';
+import 'package:food_app/screens/grocery/grocery.dart';
+import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -13,37 +14,36 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _selectedIndex = 0;
 
-  static List pages = [
+  static List screens = [
     ExploreScreen(),
     Container(color: Colors.green),
-    Container(color: Colors.pink),
+    GroceryScreen(),
   ];
 
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('FoodApp'),
-      ),
-      body: pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Colors.blue,
-        currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: 'Card 1'),
-          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: 'Card 2'),
-          BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: 'Card 3'),
-        ],
-      ),
+    return Consumer<BottomTabManager> (
+      builder: (context, bottomTabManager, child) {
+        return Scaffold(
+          appBar: AppBar(
+            title: const Text(
+              'FoodApp'
+            ),
+          ),
+          body: screens[bottomTabManager.selectedTab],
+          bottomNavigationBar: BottomNavigationBar(
+            currentIndex: bottomTabManager.selectedTab,
+            onTap: (index) => bottomTabManager.showScreen(index),
+            items: const [
+              BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: 'Card 1'),
+              BottomNavigationBarItem(icon: Icon(Icons.card_giftcard), label: 'Card 2'),
+              BottomNavigationBarItem(icon: Icon(Icons.local_grocery_store), label: 'Grocery'),
+            ],
+          ),
+        );
+      }
     );
   }
 }
