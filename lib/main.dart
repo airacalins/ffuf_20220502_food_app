@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:food_app/home.dart';
-import 'package:food_app/models/bottom_tab_manager.dart';
+import 'package:food_app/providers/providers.dart';
 import 'package:provider/provider.dart';
 
 
@@ -18,17 +18,17 @@ class FoodApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         colorScheme: ColorScheme(
-        brightness: Brightness.dark,
-        primary: Colors.blueGrey.shade900,
-        onPrimary: Colors.blueGrey,
-        secondary: Colors.amber.shade700,
-        onSecondary: Colors.amber.shade100,
-        error: Colors.red,
-        onError: Colors.red.shade100,
-        background: Colors.blueGrey.shade900,
-        onBackground: Colors.blueGrey.shade800,
-        surface: Colors.blueGrey.shade900,
-        onSurface: Colors.blueGrey,
+          brightness: Brightness.light,
+          primary: Colors.blueGrey.shade900,
+          onPrimary: Colors.white,
+          secondary: Colors.amber.shade700,
+          onSecondary: Colors.white,
+          error: Colors.red,
+          onError: Colors.red.shade100,
+          background: Colors.blueGrey.shade900,
+          onBackground: Colors.blueGrey.shade800,
+          surface: Colors.blueGrey.shade900,
+          onSurface: Colors.blueGrey,
         ),
         primaryColor: Colors.blueGrey.shade900,
         backgroundColor: Colors.blueGrey.shade900,
@@ -41,6 +41,9 @@ class FoodApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(
             create: (context) => BottomTabManager(),
+          ),
+          ChangeNotifierProvider(
+            create: (context) => GroceryManager(),
           )
         ],
         child: const Home(),

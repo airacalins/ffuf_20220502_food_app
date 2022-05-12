@@ -1,7 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:food_app/models/bottom_tab_manager.dart';
+import 'package:food_app/providers/bottom_tab_manager.dart';
 import 'package:provider/provider.dart';
 
 class EmptyGroceryScreen extends StatelessWidget {

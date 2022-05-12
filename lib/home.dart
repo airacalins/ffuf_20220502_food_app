@@ -1,9 +1,9 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:food_app/models/bottom_tab_manager.dart';
+import 'package:food_app/providers/bottom_tab_manager.dart';
 import 'package:food_app/screens/explore/explore_screen.dart';
-import 'package:food_app/screens/grocery/grocery.dart';
+import 'package:food_app/screens/grocery/grocery_screen.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatefulWidget {
